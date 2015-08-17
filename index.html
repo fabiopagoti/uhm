@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>uhm</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+        <script id="sap-ui-bootstrap"
+        src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-theme="sap_bluecrystal"
+        data-sap-ui-xx-bindingSyntax="complex"
+        data-sap-ui-resourceroots='{
+            "uhm": "./uhm"
+        }'>
+
+        </script>
+        <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+
+        <script>
+        	var chatData = new Firebase('https://uhm.firebaseio.com');
+
+            sap.ui.getCore().attachInit(function() {
+                new sap.m.Shell({
+                    app: new sap.ui.core.ComponentContainer({
+                        height : "100%",
+                        name : "uhm"
+                    })
+                }).placeAt("content");
+            });
+        </script>
+    </head>
+    
+    <body class="sapUiBody" id="content" />
+    
+</html>
