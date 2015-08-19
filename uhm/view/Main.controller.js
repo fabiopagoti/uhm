@@ -12,7 +12,7 @@
 		 	var that = this;
 		 	chatData.child("version").on("value", function(snapshot) {
   				// alert(snapshot.val());  // Alerts "San Francisco"
-  				that.byId("version").setText("Versão: " + snapshot.val());
+  				that.byId("version").setText("Versão Nova: " + snapshot.val());
   			});
 		 },
 
@@ -44,7 +44,8 @@
 
 		sendMessage: function() {
 			chatData.child('mensagens').push({ 
-					text: this.byId("message").getValue()
+					text: this.byId("message").getValue(),
+					dsadasdadnjwiegq: "abc"
 				});
 		}
 	});
