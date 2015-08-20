@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	controllerName="menu.view.Menu">
-	<Panel headerText="Titulo" expandable="true" expanded="false">
-		<content>
-			<Text text="Sidney" />
-			<Text text="Pagoti" />
-			<TextArea rows="10" cols="10" value="valor inicial" />
-		</content>
-		<headerToolbar>
-			<Toolbar design="Solid">
+	<App>
+		<pages>
+			<Page>
 				<content>
-					<Button text="bt1" press=".onButtonPress" />
+					<TileContainer>
+						<tiles>
+							<StandardTile title="Quiz" info="Quiz sobre UI5"
+								number="300" icon="sap-icon://activity-2" numberUnit="Perguntas"
+								infoState="Success" type="Monitor" />
+							<StandardTile title="Cadastro" info="Cadastro de Perguntas"
+								number="300" icon="sap-icon://add" numberUnit="Perguntas"
+								infoState="Success" type="Monitor" />
+							<StandardTile title="Grafico" info="Grafico de desempenho"
+								number="1" icon="sap-icon://radar-chart" numberUnit="UN"
+								infoState="Success" type="Monitor" />
+						</tiles>
+					</TileContainer>
 				</content>
-			</Toolbar>
-		</headerToolbar>
-	</Panel>
-	<Panel>
-		<TileContainer>
-			<tiles>
-				<StandardTile title="meu tile" info="minha info"
-					number="300" icon="sap-icon://doctor" numberUnit="Perguntas"
-					infoState="Success" type="Monitor" />
-
-
-			</tiles>
-		</TileContainer>
-	</Panel>
-
-
-
-
+			</Page>
+		</pages>
+	</App>
 
 </mvc:View>
