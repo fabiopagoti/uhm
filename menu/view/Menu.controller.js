@@ -10,9 +10,17 @@
 		 },
 
 		
-     onButtonPress:function(){
-    	 alert("teste");
-     }
+     onQuizPress:function(){
+    	alert("quiz");
+     },
+     
+     onCadPress: function() {
+		alert("cadastro");
+	},
+	
+	 onGraficPress: function() {
+		alert("grafico");
+	}
 		
 		
 	});
