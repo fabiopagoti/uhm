@@ -1,23 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	controllerName="quiz.view.Quiz">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" controllerName="quiz.view.Quiz">
 	<SplitApp>
-	    <masterPages>
-	        <List headerText="Quiz">
-	            <items>
-	                <ObjectListItem
-				       title="Pergunta"
-				       type="Active"
-				       press=".onQuestionPress"
-				       number="1"
-				       numberUnit="Pergunta">
-	                    
-	                </ObjectListItem>
-	            </items>
-	        </List>
-	    </masterPages>
-	    <detailPages>
-	       
-	    </detailPages>
+		<masterPages>
+			<List headerText="Quiz">
+				<items>
+					<ObjectListItem title="Pergunta" type="Active"
+						press=".onQuestionPress" number="1" numberUnit="Pergunta">
+
+					</ObjectListItem>
+				</items>
+			</List>
+		</masterPages>
+		<detailPages>
+			<Page>
+
+
+				<l:Grid id="detailFragment" defaultSpan="L12 M12 S12" width="auto">
+					<l:content>
+						<f:SimpleForm minWidth="1024" maxContainerCols="0"
+							editable="false" layout="ResponsiveGridLayout" title="teste"
+							labelSpanL="0" labelSpanM="0" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+						
+
+
+								<Text text="qual é a ultima versão do UI5 ?" />
+
+								<VBox>
+									<RadioButton groupName="GroupA" text="Option 1"
+										selected="true" />
+									<RadioButton groupName="GroupA" text="Option 2" />
+									<RadioButton groupName="GroupA" text="Option 3" />
+									<RadioButton groupName="GroupA" text="Option 4" />
+									<RadioButton groupName="GroupA" text="Option 5" />
+								</VBox>
+
+						
+							
+						</f:SimpleForm>
+					</l:content>
+				</l:Grid>
+
+			</Page>
+		</detailPages>
 	</SplitApp>
 </mvc:View>
