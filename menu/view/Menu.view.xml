@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="menu.view.Menu">
+	<Panel headerText="Titulo" expandable="true" expanded="false">
+		<content>
+			<Text text="Sidney" />
+			<Text text="Pagoti" />
+			<TextArea rows="10" cols="10" value="valor inicial" />
+		</content>
+		<headerToolbar>
+			<Toolbar design="Solid">
+				<content>
+					<Button text="bt1" press=".onButtonPress" />
+				</content>
+			</Toolbar>
+		</headerToolbar>
+	</Panel>
+	<Panel>
+		<TileContainer>
+			<tiles>
+				<StandardTile title="meu tile" info="minha info"
+					number="300" icon="sap-icon://doctor" numberUnit="Perguntas"
+					infoState="Success" type="Monitor" />
+
+
+			</tiles>
+		</TileContainer>
+	</Panel>
+
+
+
+
+
+</mvc:View>
