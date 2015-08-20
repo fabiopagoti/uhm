@@ -10,17 +10,11 @@
 		 },
 
 		
-     onQuizPress:function(){
-    	
-     },
+	onQuestionPress:function(){
+    	alert("chamar a tela de detalhes")
+     }
      
-     onCadPress: function() {
-		
-	},
-	
-	 onGraficPress: function() {
-		
-	}
+  
 		
 		
 	});

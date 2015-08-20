@@ -6,9 +6,9 @@
 	        <List headerText="Quiz">
 	            <items>
 	                <ObjectListItem
-				       title="1 Pergunta"
+				       title="Pergunta"
 				       type="Active"
-				       press=""
+				       press=".onQuestionPress"
 				       number="1"
 				       numberUnit="Pergunta">
 	                    
