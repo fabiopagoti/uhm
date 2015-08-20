@@ -3,13 +3,13 @@
 	"use strict";
 	// other require statements can go here
 	jQuery.sap.require("sap.ui.core.UIComponent");
-	jQuery.sap.declare("uhm.Component"); // change this to your package/component name
+	jQuery.sap.declare("menu.Component"); // change this to your package/component name
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
 	// Metadata
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
 
-	sap.ui.core.UIComponent.extend("uhm.Component", { //this should be changed to match the declare statement
+	sap.ui.core.UIComponent.extend("menu.Component", { //this should be changed to match the declare statement
 		metadata: {
 			"abstract": true,
 			version: "1.0",
@@ -42,7 +42,7 @@
 	/**
 	 * Initialize the component
 	 */
-	uhm.Component.prototype.init = function() {
+	menu.Component.prototype.init = function() {
 		sap.ui.core.UIComponent.prototype.init.apply(this);
 	};
 
@@ -50,7 +50,7 @@
 	 * Create the content by delegating to a view
 	 * @returns UI Control
 	 */
-	uhm.Component.prototype.createContent = function() {
+	menu.Component.prototype.createContent = function() {
 		// create your component content here, e.g. a view
 		this.view = new sap.ui.view({
 		  id: "myView",
