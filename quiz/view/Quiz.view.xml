@@ -16,12 +16,11 @@
 			<Page>
 
 
-				<l:Grid id="detailFragment" defaultSpan="L12 M12 S12" width="auto">
+				<l:Grid id="detailFragment"  width="auto">
 					<l:content>
-						<f:SimpleForm minWidth="1024" maxContainerCols="0"
+						<f:SimpleForm minWidth="1024" 
 							editable="false" layout="ResponsiveGridLayout" title="teste"
-							labelSpanL="0" labelSpanM="0" emptySpanL="0" emptySpanM="0"
-							columnsL="0" columnsM="0">
+							>
 						
 
 
