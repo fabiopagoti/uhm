@@ -2,25 +2,27 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	controllerName="menu.view.Menu">
 	<App>
-		<pages>
-			<Page>
-				<content>
-					<TileContainer>
-						<tiles>
-							<StandardTile title="Quiz" info="Quiz sobre UI5"
-								number="300" icon="sap-icon://activity-2" numberUnit="Perguntas"
-								infoState="Success" type="Monitor" press=".onQuizPress" />
-							<StandardTile title="Cadastro" info="Cadastro de Perguntas"
-								number="300" icon="sap-icon://add" numberUnit="Perguntas"
-								infoState="Success" type="Monitor" press=".onCadPress" />
-							<StandardTile title="Grafico" info="Grafico de desempenho"
-								number="1" icon="sap-icon://radar-chart" numberUnit="UN"
-								infoState="Success" type="Monitor" press=".onGraficPress" />
-						</tiles>
-					</TileContainer>
-				</content>
-			</Page>
-		</pages>
+		<NavContainer id="navCon">
+			<pages>
+				<Page>
+					<content>
+						<TileContainer>
+							<tiles>
+								<StandardTile title="Quiz" info="Quiz sobre UI5"
+									number="300" icon="sap-icon://activity-2" numberUnit="Perguntas"
+									infoState="Success" type="Monitor" press=".onQuizPress" />
+								<StandardTile title="Cadastro" info="Cadastro de Perguntas"
+									number="300" icon="sap-icon://add" numberUnit="Perguntas"
+									infoState="Success" type="Monitor" press=".onCadPress" />
+								<StandardTile title="Grafico" info="Grafico de desempenho"
+									number="1" icon="sap-icon://radar-chart" numberUnit="UN"
+									infoState="Success" type="Monitor" press=".onGraficPress" />
+							</tiles>
+						</TileContainer>
+					</content>
+				</Page>
+			</pages>
+		</NavContainer>
 	</App>
 
 </mvc:View>

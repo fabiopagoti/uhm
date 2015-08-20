@@ -11,7 +11,22 @@
 
 		
      onQuizPress:function(){
-    	alert("quiz");
+    	 
+    	 var CController = Controller.extend("sap.m.sample.NavContainer.C", {
+
+    			handleNav: function(evt) {
+    				var navCon = this.getView().byId("navCon");
+    				var target = evt.getSource().data("target");
+    				if (target) {
+    					navCon.to(this.getView().byId(target));
+    				} else {
+    					navCon.back();
+    				}
+    			}
+    		});
+
+
+    		return CController;
      },
      
      onCadPress: function() {
