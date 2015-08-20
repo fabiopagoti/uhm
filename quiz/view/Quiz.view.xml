@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="quiz.view.Quiz">
+	<SplitApp>
+	    <masterPages>
+	        <List headerText="Quiz">
+	            <items>
+	                <ObjectListItem
+				       title="1 Pergunta"
+				       type="Active"
+				       press=""
+				       number="1"
+				       numberUnit="Pergunta">
+	                    
+	                </ObjectListItem>
+	            </items>
+	        </List>
+	    </masterPages>
+	    <detailPages>
+	       
+	    </detailPages>
+	</SplitApp>
+</mvc:View>
