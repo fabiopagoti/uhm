@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>uhm - You Help Me</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+        <!-- src="https://openui5beta.hana.ondemand.com/resources/sap-ui-core.js" -->
+        <script id="sap-ui-bootstrap"
+        src="../../../openui5/openui5-sdk-1.30.4-SNAPSHOT/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-theme="sap_bluecrystal"
+        data-sap-ui-xx-bindingSyntax="complex"
+        data-sap-ui-resourceroots='{
+            "menu": "./menu",
+            "quiz":"./quiz",
+            "uhm": "./hum"
+        }'>
+
+        </script>
+        <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+
+        <script>
+        	var chatData = new Firebase('https://uhm.firebaseio.com');
+
+             sap.ui.getCore().attachInit(function() {
+                 new sap.m.Shell("shell",{
+                     app: new sap.ui.core.ComponentContainer({
+                         height : "100%",
+                         name : "menu"
+                     })
+                 }).placeAt("content");
+             });
+        </script>
+    </head>
+    
+    <body class="sapUiBody" id="content" />
+    
+</html>
