@@ -1,42 +1,29 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	sap.ui.controller("menu.view.Menu", {
-
-		
-		 onInit: function() {
-		 	
-  			
-		 },
-
-		
-     onQuizPress:function(){
-    	 
-    	 var CController = Controller.extend("sap.m.sample.NavContainer.C", {
-
-    			handleNav: function(evt) {
-    				var navCon = this.getView().byId("navCon");
-    				var target = evt.getSource().data("target");
-    				if (target) {
-    					navCon.to(this.getView().byId(target));
-    				} else {
-    					navCon.back();
-    				}
-    			}
-    		});
+  sap.ui.controller("menu.view.Menu", {
 
 
-    		return CController;
-     },
-     
-     onCadPress: function() {
-		alert("cadastro");
-	},
-	
-	 onGraficPress: function() {
-		alert("grafico");
-	}
-		
-		
-	});
+    onInit: function() {
+
+    },
+
+
+    onQuizPress: function() {
+      sap.ui.getCore().byId("shell").setApp(new sap.ui.core.ComponentContainer({
+        height: "100%",
+        name: "quiz"
+      }));
+    },
+
+    onCadPress: function() {
+      alert("cadastro");
+    },
+
+    onGraficPress: function() {
+      alert("grafico");
+    }
+
+
+  });
 }());

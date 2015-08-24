@@ -53,16 +53,10 @@
 	quiz.Component.prototype.createContent = function() {
 		// create your component content here, e.g. a view
 		this.view = new sap.ui.view({
-		  id: "myView",
 		  viewName: "quiz.view.Quiz",
 		  type: sap.ui.core.mvc.ViewType.XML
 		});
 		return this.view;
-
-		// return new sap.m.Text({
-		// 	text: "UHM"
-		// });
-
 	};
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
