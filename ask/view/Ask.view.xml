@@ -4,13 +4,14 @@
 		<Page title="Ask a question">
 			<FlexBox direction="Column" alignItems="Center" fitContainer="true">
 				<items>
-					<Label text="Topic"/>
+					<Label text="{i18n>topic}"/>
 					<ComboBox id="topic">
 						<items>
 							<c:Item key="math" text="Math"/>
 							<c:Item key="ui5" text="UI5"/>
 						</items>
 					</ComboBox>
+					<Label text="{i18n>question}" />
 					<Input id="question"/>
 					<ComboBox id="questionType">
 						<items>
@@ -25,7 +26,7 @@
 							<RadioButton id="answer3" text="Answer 3"/>
 						</buttons>
 					</RadioButtonGroup>
-					<Button text="Ask Question" press=".onPressAskQuestion" />
+					<Button id="butAsk" text="{i18n>ask}" press=".onPressAskQuestion" />
 				</items>
 			</FlexBox>
 		</Page>
