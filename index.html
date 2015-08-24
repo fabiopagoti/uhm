@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>uhm</title>
+        <title>uhm - You Help Me</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
      
+        
         <script id="sap-ui-bootstrap"
         src="https://openui5beta.hana.ondemand.com/resources/sap-ui-core.js"
         data-sap-ui-libs="sap.m"
@@ -16,7 +17,6 @@
             "menu": "./menu",
             "quiz":"./quiz",
             "uhm": "./hum"
-            
         }'>
 
         </script>
@@ -26,7 +26,7 @@
         	var chatData = new Firebase('https://uhm.firebaseio.com');
 
              sap.ui.getCore().attachInit(function() {
-                 new sap.m.Shell({
+                 new sap.m.Shell("shell",{
                      app: new sap.ui.core.ComponentContainer({
                          height : "100%",
                          name : "menu"
