@@ -5,7 +5,7 @@ sap.ui.define([
     return UIComponent.extend("ask.Component", {
         metadata: {
             manifest: "json"
-        },
+        }, 
         init: function() {
             UIComponent.prototype.init.apply(this, arguments);
             // this.getRouter().initialize();
