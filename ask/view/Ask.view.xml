@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mvc:View controllerName="ask.view.Ask" xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<App>
+		<Page title="Ask a question">
+			<FlexBox direction="Column" alignItems="Center" fitContainer="true">
+				<items>
+					<Label text="Topic"/>
+					<ComboBox id="topic">
+						<items>
+							<c:Item key="math" text="Math"/>
+							<c:Item key="ui5" text="UI5"/>
+						</items>
+					</ComboBox>
+					<Input id="question"/>
+					<ComboBox id="questionType">
+						<items>
+							<c:Item key="typeSingleAnswer" text="SingleAnswer"/>
+							<c:Item key="typeMultipleAnswer" text="MultipleAnswer"/>
+						</items>
+					</ComboBox>
+					<RadioButtonGroup id="answers">
+						<buttons>
+							<RadioButton id="answer1" text="Answer 1"/>
+							<RadioButton id="answer2" text="Answer 2"/>
+							<RadioButton id="answer3" text="Answer 3"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Button text="Ask Question" press=".onPressAskQuestion" />
+				</items>
+			</FlexBox>
+		</Page>
+	</App>
+</mvc:View>
