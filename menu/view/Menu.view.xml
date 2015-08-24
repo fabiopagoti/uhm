@@ -2,13 +2,13 @@
 <mvc:View controllerName="menu.view.Menu" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<App>
 		<pages>
-			<Page>
+			<Page title="uhm - Main Menu">
 				<content>
 					<TileContainer>
 						<tiles>
-							<StandardTile title="{i18n>tileAnswer}" info="{i18n>tileDescriptionAnswer}" press=".onQuizPress" icon="sap-icon://activity-2"/>
-							<StandardTile title="{i18n>tileQuestion}" info="{i18n>tileDescriptionQuestion}" press=".onCadPress" icon="sap-icon://add" />
-							<StandardTile title="{i18n>tileStats}" info="{i18n>tileDescriptionStats}" press=".onGraficPress" icon="sap-icon://radar-chart"/>
+							<StandardTile title="{i18n>tileAnswer}" info="{i18n>tileDescriptionAnswer}" press=".onPressAnswer" icon="sap-icon://activity-2"/>
+							<StandardTile title="{i18n>tileQuestion}" info="{i18n>tileDescriptionQuestion}" press=".onPressQuestion" icon="sap-icon://add" />
+							<StandardTile title="{i18n>tileStats}" info="{i18n>tileDescriptionStats}" press=".onPressStats" icon="sap-icon://radar-chart"/>
 						</tiles>
 					</TileContainer>
 				</content>

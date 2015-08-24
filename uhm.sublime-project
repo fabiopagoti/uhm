@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "C:\\github\\fabiopagoti\\UI5-Example-Component"
 		}
 	]
 }

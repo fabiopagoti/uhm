@@ -1,29 +1,29 @@
-(function() {
-  "use strict";
+sap.ui.define([
+    "sap/ui/core/mvc/Controller"
+], function(Controller) {
+    "use strict";
 
-  sap.ui.controller("menu.view.Menu", {
+    return Controller.extend("menu.view.Menu", {
 
+        onInit: function() {
 
-    onInit: function() {
+        },
 
-    },
+        onPressAnswer: function() {
+            sap.ui.getCore().byId("shell").setApp(new sap.ui.core.ComponentContainer({
+                height: "100%",
+                name: "quiz"
+            }));
+        },
 
+        onPressQuestion: function() {
 
-    onQuizPress: function() {
-      sap.ui.getCore().byId("shell").setApp(new sap.ui.core.ComponentContainer({
-        height: "100%",
-        name: "quiz"
-      }));
-    },
+        },
 
-    onCadPress: function() {
-      alert("cadastro");
-    },
+        onPressStats: function() {
+            alert("grafico");
+        }
+        
+    });
 
-    onGraficPress: function() {
-      alert("grafico");
-    }
-
-
-  });
-}());
+});
