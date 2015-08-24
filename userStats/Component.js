@@ -1,15 +1,15 @@
-/*global uh*/
+/*global menu*/
 (function() {
 	"use strict";
 	// other require statements can go here
 	jQuery.sap.require("sap.ui.core.UIComponent");
-	jQuery.sap.declare("quiz.Component"); // change this to your package/component name
+	jQuery.sap.declare("menu.userStats.Component"); // change this to your package/component name
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
 	// Metadata
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
 
-	sap.ui.core.UIComponent.extend("quiz.Component", { //this should be changed to match the declare statement
+	sap.ui.core.UIComponent.extend("menu.userStats.Component", { //this should be changed to match the declare statement
 		metadata: {
 			"abstract": true,
 			version: "1.0",
@@ -42,7 +42,7 @@
 	/**
 	 * Initialize the component
 	 */
-	quiz.Component.prototype.init = function() {
+	menu.userStats.Component.prototype.init = function() {
 		sap.ui.core.UIComponent.prototype.init.apply(this);
 	};
 
@@ -50,13 +50,15 @@
 	 * Create the content by delegating to a view
 	 * @returns UI Control
 	 */
-	quiz.Component.prototype.createContent = function() {
+	menu.userStats.Component.prototype.createContent = function() {
 		// create your component content here, e.g. a view
-		this.view = new sap.ui.view({
-		  viewName: "quiz.view.Quiz",
-		  type: sap.ui.core.mvc.ViewType.XML
-		});
-		return this.view;
+		// this.view = new sap.ui.view({
+		//   id: "myView",
+		//   viewName: "path.to.ViewName",
+		//   type: sap.ui.core.mvc.ViewType.JS
+		// });
+
+		// return this.view;
 	};
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------------
