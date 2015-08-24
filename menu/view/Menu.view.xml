@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <mvc:View controllerName="menu.view.Menu" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
 	<App>
-		<NavContainer id="navCon">
-			<pages>
-				<Page>
-					<content>
-						<TileContainer>
-							<tiles>
-								<StandardTile icon="sap-icon://activity-2" info="Quiz sobre UI5" infoState="Success" number="300" numberUnit="Perguntas" press=".onQuizPress" title="Quiz" type="Monitor" />
-								<StandardTile icon="sap-icon://add" info="Cadastro de Perguntas" infoState="Success" number="300" numberUnit="Perguntas" press=".onCadPress" title="Cadastro" type="Monitor"/>
-								<StandardTile icon="sap-icon://radar-chart" info="Grafico de desempenho" infoState="Success" number="1" numberUnit="UN" press=".onGraficPress" title="Grafico" type="Monitor"/>
-							</tiles>
-						</TileContainer>
-					</content>
-				</Page>
-			</pages>
-		</NavContainer>
+		<pages>
+			<Page>
+				<content>
+					<TileContainer>
+						<tiles>
+							<StandardTile title="{i18n>tileAnswer}" info="{i18n>tileDescriptionAnswer}" press=".onQuizPress" icon="sap-icon://activity-2"/>
+							<StandardTile title="{i18n>tileQuestion}" info="{i18n>tileDescriptionQuestion}" press=".onCadPress" icon="sap-icon://add" />
+							<StandardTile title="{i18n>tileStats}" info="{i18n>tileDescriptionStats}" press=".onGraficPress" icon="sap-icon://radar-chart"/>
+						</tiles>
+					</TileContainer>
+				</content>
+			</Page>
+		</pages>
 	</App>
 </mvc:View>
