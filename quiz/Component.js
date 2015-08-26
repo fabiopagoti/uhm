@@ -8,7 +8,17 @@ sap.ui.define([
         },
         init: function() {
             UIComponent.prototype.init.apply(this, arguments);
-            // this.getRouter().initialize();
+            this.firebase = new Firebase('https://uhm.firebaseio.com');
+           var oConsumo = this.firebase.child('questions');
+            
+           
+
+           oConsumo.on('value', function(snap) {
+            var questionsQuiz = snap.val();
+            var questionsModel = new JSONModel(questionsQuiz);
+            this.setModel(questionsModel,"questionsQuiz");
+          });
+            
         }
     });
 });

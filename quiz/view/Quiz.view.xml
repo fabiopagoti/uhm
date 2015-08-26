@@ -3,9 +3,9 @@
 	xmlns:f="sap.ui.layout.form" controllerName="quiz.view.Quiz">
 	<SplitApp>
 		<masterPages>
-			<List headerText="Quiz">
+			<List headerText="{i18n>topic}">
 				<items>
-					<ObjectListItem title="Pergunta" type="Active"
+					<ObjectListItem title="{oModel/version}" type="Active"
 						press=".onQuestionPress" number="1" numberUnit="Pergunta">
 
 					</ObjectListItem>
@@ -27,12 +27,9 @@
 								<Text text="qual é a ultima versão do UI5 ?" />
 
 								<VBox>
-									<RadioButton groupName="GroupA" text="Option 1"
-										selected="true" />
-									<RadioButton groupName="GroupA" text="Option 2" />
-									<RadioButton groupName="GroupA" text="Option 3" />
-									<RadioButton groupName="GroupA" text="Option 4" />
-									<RadioButton groupName="GroupA" text="Option 5" />
+									<RadioButtonGroup >
+									   <RadioButton groupName="GroupA" text="Option 1" selected="true" />
+									</RadioButtonGroup>
 								</VBox>
 
 						
