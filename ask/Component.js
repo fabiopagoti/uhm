@@ -14,21 +14,10 @@ sap.ui.define([
             // this.getRouter().initialize();
             this.firebase = new Firebase('https://uhm.firebaseio.com');
 
-            var questionType = this.firebase.child("questionType");
-            questionType.on("value",this.loadQuestionTypes,this);
-
             var topics = this.firebase.child("topics");
             topics.on("value",this.loadTopics,this);
 
             this.loadOptions();
-        },
-
-        loadQuestionTypes: function(snap){
-            jQuery.sap.log.debug("loadQuestionTypes");
-
-            var questionTypes = snap.val();
-            var questionTypeModel = new JSONModel(questionTypes);
-            this.setModel(questionTypeModel,"questionType");
         },
 
         loadTopics: function(snap){

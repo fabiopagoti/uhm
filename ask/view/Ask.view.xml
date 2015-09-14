@@ -16,23 +16,11 @@
 					</ComboBox>
 
 					<Label text="{i18n>question}" />
-					<Input id="question"/>
-
-					<Label text="{i18n>questionType}"/>
-					<ComboBox 
-						id="questionType" 
-						items="{
-						path: 'questionType>/'
-						}"
-						selectionChange=".onChangeQuestionType">
-						
-						<c:Item key="{questionType>key}" text="{questionType>text}"/>
-						
-					</ComboBox>
+					<Input id="question" />
 
 					<Label text="{i18n>options}"/>
 					<VBox
-						id="answersContainer"
+						id="optionsContainer"
 						items="{
 							path: 'options>/'
 						}"
@@ -40,10 +28,18 @@
 						
 						<Input value="{options>value}"
 							placeholder="{options>placeholder}" 
-							change=".onChangeAnswer">
+							change=".onChangeOption">
 						</Input>
 
 					</VBox>
+
+					<MultiComboBox
+						id="answers"
+						items="{
+							path: 'options>/'
+						}">
+						<c:Item text="{options>value}" />
+					</MultiComboBox>
 
 					<Button id="butAsk" text="{i18n>ask}" press=".onPressAskQuestion" />
 
