@@ -6,59 +6,39 @@ sap.ui.define([
 
 		return Controller.extend("ask.view.Ask", {
 
-			// _answersFragmentName: "ask.view.answers",
-
-			onInit: function() {
-
-			},
-
 			onPressAskQuestion: function(){
 				jQuery.sap.log.debug("onPressAskQuestion");
+
 				var firebase = this.getOwnerComponent().firebase;
 				firebase.child("questions")
 				.push(	this.getQuestionObject(),
 					$.proxy(this.onCompleteQuestionAsked,this)
 					);
-			},
-
-			onChangeQuestionType: function(){
-				jQuery.sap.log.debug("onChangeQuestionType");
-				
-				// var container = this.byId("answersContainer");
-				// container.destroyItems();
-
-				// if (container.getItems().length === 0) {
-				// 	var frag = sap.ui.xmlfragment(this._answersFragmentName,this);
-				// 	container.addItem(frag);
-				// };
 
 			},
 
-			getQuestionObject: function(){
+			getQuestionObject: function (){
 				jQuery.sap.log.debug("getQuestionObject");
-
-				function getOptions(){
-					var optionsModel = this.getView().getModel("options");
-					var options = optionsModel.getData();
-
-					var optionsArray = new Array();
-
-					for (var i = 0; i < options.length; i++) {
-						if (options[i].value !== "") {
-							optionsArray.push(options[i].value);
-						};
-					};
-
-					return optionsArray;
-					
-				}
 
 				return {
 					topic: [this.byId("topic").getSelectedKey()],
 					text: this.byId("question").getValue(),
-					type: this.byId("questionType").getSelectedKey(),
-					options: optionsArray
+					options: this.getOptions()
 				};
+			},
+
+			getOptions: function(){
+				var optionsModel = this.getView().getModel("options");
+				var options = optionsModel.getData();
+				var optionsArray = new Array();
+
+				for (var i = 0; i < options.length; i++) {
+					if (options[i].value !== "") {
+						optionsArray.push(options[i].value);
+					};
+				};
+
+				return optionsArray;
 			},
 
 			onCompleteQuestionAsked: function(e){
@@ -81,58 +61,67 @@ sap.ui.define([
 
 				this.clearFields();
 			},
-
+			
 			clearFields: function(){
 				this.byId("topic").setSelectedKey();
 				this.byId("question").setValue();
-				this.byId("questionType").setSelectedKey();
 			},
 
 			_removeOptionIfNeeded: function(option){
 				// if value is empty, remove the option
-
-				var options = this.byId("answersContainer").getItems();
-
-				if (option.getValue() === "" && 
-					option !== options[0] &&
-					option !== options[1] )
-				{
-					option.destroy(false);
+				if (option.getValue() !== "") {
+					return;
 				}
+
+				var model = option.getModel("options");
+				var data = model.getData();
+				var indexOfOptionToBeRemoved = arrayObjectIndexOf(data,option.getValue(),"value");
+
+				if (indexOfOptionToBeRemoved !== 0 && 
+					indexOfOptionToBeRemoved !== 1) {
+					// remove option
+					data.splice(indexOfOptionToBeRemoved,1);
+				}
+
+				function arrayObjectIndexOf(myArray, searchTerm, property) {
+					for(var i = 0, len = myArray.length; i < len; i++) {
+						if (myArray[i][property] === searchTerm) return i;
+					}
+					return -1;
+				};
 
 			},
 
 			_addOptionIfNeeded: function(option){
 
-				var answers = this.byId("answersContainer");
+				var options = this.byId("optionsContainer");
 
-				// get number of answers
-				var numberOfAnswers = answers.getItems().length;
+				// get number of options
+				var numberOfOptions = options.getItems().length;
 
-				// get current answer index
-				var answerIndex = answers.indexOfItem(option);
+				// get current option index
+				var optionIndex = options.indexOfItem(option);
 
-				if (numberOfAnswers === (answerIndex + 1) ) {
+				if (numberOfOptions === (optionIndex + 1) ) {
 
 					var model = option.getModel("options");
 					var newData = model.getData().push({
-						placeholder: "Option " + (numberOfAnswers + 1),
+						placeholder: "Option " + (numberOfOptions + 1),
 						value: ""
 					});
 
-					// create new answer
-					model.setData(newData,true);
+					// create new option
+					// model.setData(newData,true);
 				};
 			},
 
-			onChangeAnswer: function(e){
+			onChangeOption: function(e){
 				var changedInput = e.getSource();
 
 				this._removeOptionIfNeeded(changedInput);
 
 				this._addOptionIfNeeded(changedInput);
 
-				
 			}
 
 		});
