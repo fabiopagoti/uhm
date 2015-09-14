@@ -26,18 +26,23 @@
 						}"
 						selectionChange=".onChangeQuestionType">
 						
-							<c:Item key="{questionType>key}" text="{questionType>text}"/>
+						<c:Item key="{questionType>key}" text="{questionType>text}"/>
 						
 					</ComboBox>
 
+					<Label text="{i18n>options}"/>
 					<VBox
 						id="answersContainer"
 						items="{
 							path: 'options>/'
-						}">
+						}"
+						>
 						
-							<Input placeholder="{options>placeholder}" change=".onChangeAnswer" />
-						
+						<Input value="{options>value}"
+							placeholder="{options>placeholder}" 
+							change=".onChangeAnswer">
+						</Input>
+
 					</VBox>
 
 					<Button id="butAsk" text="{i18n>ask}" press=".onPressAskQuestion" />

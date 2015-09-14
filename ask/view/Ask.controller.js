@@ -36,11 +36,28 @@ sap.ui.define([
 
 			getQuestionObject: function(){
 				jQuery.sap.log.debug("getQuestionObject");
+
+				function getOptions(){
+					var optionsModel = this.getView().getModel("options");
+					var options = optionsModel.getData();
+
+					var optionsArray = new Array();
+
+					for (var i = 0; i < options.length; i++) {
+						if (options[i].value !== "") {
+							optionsArray.push(options[i].value);
+						};
+					};
+
+					return optionsArray;
+					
+				}
+
 				return {
 					topic: [this.byId("topic").getSelectedKey()],
 					text: this.byId("question").getValue(),
 					type: this.byId("questionType").getSelectedKey(),
-					answer: ["A"]
+					options: optionsArray
 				};
 			},
 
@@ -71,10 +88,21 @@ sap.ui.define([
 				this.byId("questionType").setSelectedKey();
 			},
 
-			// fragment
+			_removeOptionIfNeeded: function(option){
+				// if value is empty, remove the option
 
-			onChangeAnswer: function(e){
-				var changedInput = e.getSource();
+				var options = this.byId("answersContainer").getItems();
+
+				if (option.getValue() === "" && 
+					option !== options[0] &&
+					option !== options[1] )
+				{
+					option.destroy(false);
+				}
+
+			},
+
+			_addOptionIfNeeded: function(option){
 
 				var answers = this.byId("answersContainer");
 
@@ -82,19 +110,29 @@ sap.ui.define([
 				var numberOfAnswers = answers.getItems().length;
 
 				// get current answer index
-				var answerIndex = answers.indexOfItem(changedInput);
+				var answerIndex = answers.indexOfItem(option);
 
 				if (numberOfAnswers === (answerIndex + 1) ) {
 
-					var model = changedInput.getModel("options");
+					var model = option.getModel("options");
 					var newData = model.getData().push({
-								placeholder: "Option 3",
-								id: "option_3"
-							});
+						placeholder: "Option " + (numberOfAnswers + 1),
+						value: ""
+					});
 
 					// create new answer
 					model.setData(newData,true);
 				};
+			},
+
+			onChangeAnswer: function(e){
+				var changedInput = e.getSource();
+
+				this._removeOptionIfNeeded(changedInput);
+
+				this._addOptionIfNeeded(changedInput);
+
+				
 			}
 
 		});

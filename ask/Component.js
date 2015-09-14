@@ -42,12 +42,12 @@ sap.ui.define([
         loadOptions: function(){
             var options = new JSONModel([
             {
-                placeholder: "Option 1",
-                id: "option_1"
+                value: "",
+                placeholder: "Option 1"
             },
             {
-                placeholder: "Option 2",
-                id: "option_2"
+                value: "",
+                placeholder: "Option 2"
             }
             ]);
 
