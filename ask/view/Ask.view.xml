@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<mvc:View controllerName="ask.view.Ask" xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View 
+	controllerName="ask.view.Ask" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc">
 	<App>
 		<Page title="Ask a question">
-			<FlexBox direction="Column" alignItems="Center" fitContainer="true">
+			<FlexBox direction="Column" alignItems="Stretch" fitContainer="true">
 				<items>
 					<Label text="{i18n>topic}"/>
-					<ComboBox id="topic">
-						<items>
-							<c:Item key="math" text="Math"/>
-							<c:Item key="ui5" text="UI5"/>
-						</items>
+					<ComboBox 
+						id="topic"
+						items="{topics>/}">
+						<c:Item key="{topics>}" text="{topics>}" />
 					</ComboBox>
+
 					<Label text="{i18n>question}" />
 					<Input id="question"/>
-					<ComboBox id="questionType">
-						<items>
-							<c:Item key="typeSingleAnswer" text="SingleAnswer"/>
-							<c:Item key="typeMultipleAnswer" text="MultipleAnswer"/>
-						</items>
+
+					<Label text="{i18n>questionType}"/>
+					<ComboBox 
+						id="questionType" 
+						items="{
+						path: 'questionType>/'
+						}"
+						selectionChange=".onChangeQuestionType">
+						
+							<c:Item key="{questionType>key}" text="{questionType>text}"/>
+						
 					</ComboBox>
-					<RadioButtonGroup id="answers">
-						<buttons>
-							<RadioButton id="answer1" text="Answer 1"/>
-							<RadioButton id="answer2" text="Answer 2"/>
-							<RadioButton id="answer3" text="Answer 3"/>
-						</buttons>
-					</RadioButtonGroup>
+
+					<VBox
+						id="answersContainer"
+						items="{
+							path: 'options>/'
+						}">
+						
+							<Input placeholder="{options>placeholder}" change=".onChangeAnswer" />
+						
+					</VBox>
+
 					<Button id="butAsk" text="{i18n>ask}" press=".onPressAskQuestion" />
+
 				</items>
 			</FlexBox>
 		</Page>

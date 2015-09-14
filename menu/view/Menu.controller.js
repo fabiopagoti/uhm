@@ -19,7 +19,10 @@ sap.ui.define([
 
         onPressQuestion: function() {
             jQuery.sap.log.debug("onPressQuestion clicked");
-
+            sap.ui.getCore().byId("shell").setApp(new sap.ui.core.ComponentContainer({
+                height: "100%",
+                name: "ask"
+            }));
         },
 
         onPressStats: function() {

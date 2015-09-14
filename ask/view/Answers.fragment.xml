@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" >
+
+	<VBox id="answers">
+
+		<Input placeholder="Answer 1" change=".onChangeAnswer" />
+		<Input placeholder="Answer 2" change=".onChangeAnswer" />
+
+	</VBox>
+</core:FragmentDefinition>
